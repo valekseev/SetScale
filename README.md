@@ -4,8 +4,8 @@ AutoHotkey scripts that change the **per-monitor Windows display scale** via **D
 
 ## Supported versions
 
-setscale_v1.ahk - Autohotkey v1.1
-setscale_v2.ahk - Autohotkey v2.0
+- setscale_v1.ahk - Autohotkey v1.1
+- setscale_v2.ahk - Autohotkey v2.0
 
 ## Supported scale steps
 
