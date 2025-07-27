@@ -22,8 +22,10 @@ SetScale(scalePercent, monitorIndex := 1) {
     ; get buffer sizes for paths and modes
     pathCount := Buffer(4)
     modeCount := Buffer(4)
-    if DllCall("user32\GetDisplayConfigBufferSizes", "UInt", QDC_ONLY_ACTIVE_PATHS
-        , "Ptr", pathCount, "Ptr", modeCount)
+    if DllCall("user32\GetDisplayConfigBufferSizes"
+        , "UInt", QDC_ONLY_ACTIVE_PATHS
+        , "Ptr", pathCount
+        , "Ptr", modeCount)
         return 0
     totalPaths := NumGet(pathCount, 0, "UInt")
     totalModes := NumGet(modeCount, 0, "UInt")

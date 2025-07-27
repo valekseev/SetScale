@@ -10,19 +10,22 @@ SetScale(scalePercent, monitorIndex := 1) {
 
     ; find desired index
     idx := -1
-    for i, v in ScaleValues
+    for i, v in ScaleValues {
         if (v = scalePercent) {
             idx := i - 1
             break
         }
+    }
     if (idx < 0)
         return 0
 
     ; get buffer sizes for paths and modes
     VarSetCapacity(pathCount, 4)
     VarSetCapacity(modeCount, 4)
-    if DllCall("user32\GetDisplayConfigBufferSizes", "UInt", QDC_ONLY_ACTIVE_PATHS
-        , "UIntP", pathCount, "UIntP", modeCount)
+    if DllCall("user32\GetDisplayConfigBufferSizes"
+        , "UInt", QDC_ONLY_ACTIVE_PATHS
+        , "UIntP", pathCount
+        , "UIntP", modeCount)
         return 0
     totalPaths := NumGet(pathCount, 0, "UInt")
     totalModes := NumGet(modeCount, 0, "UInt")
